@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="myRectangle" width="1368px" height="800px"></canvas>
+<script>
+    var Rectangle = function (x, y) {
+        this.x = x; // chieu dai
+        this.y = y; // chieu rong
+        this.getChuvi = function () {
+            return this.x * 2 + this.y * 2
+        }
+        this.getDientich = function () {
+            return this.x * this.y
+        }
+        this.setChieuDai = function (x) {
+            this.x = parseInt(prompt("Nhap chieu dai: "));
+        }
+        this.setChieuRong = function (y) {
+            this.y = parseInt(prompt("Nhap chieu rong: "));
+        }
+    }
+
+    function createRectangle() {
+        var ctx = document.getElementById('myRectangle').getContext("2d");
+        var rectangle1 = new Rectangle();
+        rectangle1.setChieuDai();
+        rectangle1.setChieuRong();
+        ctx.beginPath();
+        ctx.rect(100, 100, rectangle1.x, rectangle1.y);
+        ctx.fillText("Chu vi: " + rectangle1.getChuvi(), 50, 50);
+        ctx.fillText("Dien tich: " + rectangle1.getDientich(), 50, 70);
+        ctx.stroke();
+
+    }
+
+    createRectangle();
+</script>
+</body>
+</html>
